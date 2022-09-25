@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		76D3F31328E007E100715CFF /* PopoverSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F31228E007E100715CFF /* PopoverSampleApp.swift */; };
+		76D3F31328E007E100715CFF /* PullViewSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F31228E007E100715CFF /* PullViewSampleApp.swift */; };
 		76D3F31528E007E100715CFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F31428E007E100715CFF /* ContentView.swift */; };
 		76D3F31728E007E300715CFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D3F31628E007E300715CFF /* Assets.xcassets */; };
 		76D3F31A28E007E300715CFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D3F31928E007E300715CFF /* Preview Assets.xcassets */; };
+		76D3F32328E00F9400715CFF /* PullContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F32228E00F9400715CFF /* PullContentView.swift */; };
+		76D3F32528E07DD100715CFF /* PullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F32428E07DD100715CFF /* PullView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		76D3F30F28E007E100715CFF /* PopoverSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopoverSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		76D3F31228E007E100715CFF /* PopoverSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverSampleApp.swift; sourceTree = "<group>"; };
+		76D3F30F28E007E100715CFF /* PullViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PullViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76D3F31228E007E100715CFF /* PullViewSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullViewSampleApp.swift; sourceTree = "<group>"; };
 		76D3F31428E007E100715CFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		76D3F31628E007E300715CFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76D3F31928E007E300715CFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		76D3F32228E00F9400715CFF /* PullContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullContentView.swift; sourceTree = "<group>"; };
+		76D3F32428E07DD100715CFF /* PullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +39,7 @@
 		76D3F30628E007E100715CFF = {
 			isa = PBXGroup;
 			children = (
-				76D3F31128E007E100715CFF /* PopoverSample */,
+				76D3F31128E007E100715CFF /* PullViewSample */,
 				76D3F31028E007E100715CFF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,20 +47,22 @@
 		76D3F31028E007E100715CFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76D3F30F28E007E100715CFF /* PopoverSample.app */,
+				76D3F30F28E007E100715CFF /* PullViewSample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		76D3F31128E007E100715CFF /* PopoverSample */ = {
+		76D3F31128E007E100715CFF /* PullViewSample */ = {
 			isa = PBXGroup;
 			children = (
-				76D3F31228E007E100715CFF /* PopoverSampleApp.swift */,
+				76D3F31228E007E100715CFF /* PullViewSampleApp.swift */,
 				76D3F31428E007E100715CFF /* ContentView.swift */,
+				76D3F32228E00F9400715CFF /* PullContentView.swift */,
+				76D3F32428E07DD100715CFF /* PullView.swift */,
 				76D3F31628E007E300715CFF /* Assets.xcassets */,
 				76D3F31828E007E300715CFF /* Preview Content */,
 			);
-			path = PopoverSample;
+			path = PullViewSample;
 			sourceTree = "<group>";
 		};
 		76D3F31828E007E300715CFF /* Preview Content */ = {
@@ -70,9 +76,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		76D3F30E28E007E100715CFF /* PopoverSample */ = {
+		76D3F30E28E007E100715CFF /* PullViewSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76D3F31D28E007E300715CFF /* Build configuration list for PBXNativeTarget "PopoverSample" */;
+			buildConfigurationList = 76D3F31D28E007E300715CFF /* Build configuration list for PBXNativeTarget "PullViewSample" */;
 			buildPhases = (
 				76D3F30B28E007E100715CFF /* Sources */,
 				76D3F30C28E007E100715CFF /* Frameworks */,
@@ -82,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = PopoverSample;
+			name = PullViewSample;
 			productName = PopoverSample;
-			productReference = 76D3F30F28E007E100715CFF /* PopoverSample.app */;
+			productReference = 76D3F30F28E007E100715CFF /* PullViewSample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 76D3F30A28E007E100715CFF /* Build configuration list for PBXProject "PopoverSample" */;
+			buildConfigurationList = 76D3F30A28E007E100715CFF /* Build configuration list for PBXProject "PullViewSample" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76D3F30E28E007E100715CFF /* PopoverSample */,
+				76D3F30E28E007E100715CFF /* PullViewSample */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D3F32328E00F9400715CFF /* PullContentView.swift in Sources */,
+				76D3F32528E07DD100715CFF /* PullView.swift in Sources */,
 				76D3F31528E007E100715CFF /* ContentView.swift in Sources */,
-				76D3F31328E007E100715CFF /* PopoverSampleApp.swift in Sources */,
+				76D3F31328E007E100715CFF /* PullViewSampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +274,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PopoverSample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PullViewSample/Preview Content\"";
 				DEVELOPMENT_TEAM = 2ZCQK7R3VP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -295,7 +303,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PopoverSample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PullViewSample/Preview Content\"";
 				DEVELOPMENT_TEAM = 2ZCQK7R3VP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -320,7 +328,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		76D3F30A28E007E100715CFF /* Build configuration list for PBXProject "PopoverSample" */ = {
+		76D3F30A28E007E100715CFF /* Build configuration list for PBXProject "PullViewSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76D3F31B28E007E300715CFF /* Debug */,
@@ -329,7 +337,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76D3F31D28E007E300715CFF /* Build configuration list for PBXNativeTarget "PopoverSample" */ = {
+		76D3F31D28E007E300715CFF /* Build configuration list for PBXNativeTarget "PullViewSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76D3F31E28E007E300715CFF /* Debug */,
