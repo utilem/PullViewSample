@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 
 struct PullOverView<Content> : View where Content : View {
-    let minHeight: CGFloat
+    @Binding var minHeight: CGFloat
     let paddingTop: CGFloat
     let onExpand: () -> Void
     let onCollapse: () -> Void
     let content: () -> Content
 
-    init(minHeight: CGFloat = 16, paddingTop: CGFloat = 16, onExpand: @escaping () -> Void, onCollapse: @escaping () -> Void, content: @escaping () -> Content) {
-        self.minHeight = minHeight
+    init(minHeight: Binding<CGFloat>, paddingTop: CGFloat = 16, onExpand: @escaping () -> Void, onCollapse: @escaping () -> Void, content: @escaping () -> Content) {
+        self._minHeight = minHeight
         self.paddingTop = paddingTop
         self.onExpand = onExpand
         self.onCollapse = onCollapse
@@ -24,7 +24,7 @@ struct PullOverView<Content> : View where Content : View {
     }
     
     public var body: some View {
-        ModifiedContent(content: self.content(), modifier: PullView(minHeight: minHeight, paddingTop: paddingTop, onExpand: onExpand, onCollapse: onCollapse))
+        ModifiedContent(content: self.content(), modifier: PullView(minHeight: $minHeight, paddingTop: paddingTop, onExpand: onExpand, onCollapse: onCollapse))
     }
 }
 
@@ -63,7 +63,7 @@ struct CardShape: Shape {
 }
 
 struct PullView: ViewModifier {
-    let minHeight: CGFloat
+    @Binding var minHeight: CGFloat
     let paddingTop: CGFloat
     let onExpand: () -> Void
     let onCollapse: () -> Void
@@ -73,6 +73,10 @@ struct PullView: ViewModifier {
     @State private var position: CGFloat = 0
     @State private var minYPosition: CGFloat = 0
     
+    func setupMinHeight(geom: GeometryProxy) {
+        minYPosition = geom.size.height - minHeight
+        position = minYPosition
+    }
     func body(content: Content) -> some View {
         GeometryReader { geom in
             ZStack(alignment: .top) {
@@ -85,15 +89,19 @@ struct PullView: ViewModifier {
                 }
                 .frame(minWidth: UIScreen.main.bounds.width)
                 .scaleEffect(x: 1, y: 1, anchor: .center)
-                .background(.thickMaterial)
+                .background(Color(white:0.9, opacity: 1))
+//                .background(.thickMaterial)
                 .clipShape( CardShape(radius: 16) )
             }
+            .onChange(of: minHeight) { newHeight in
+                setupMinHeight(geom: geom)
+            }
             .onAppear {
-                minYPosition = geom.size.height - minHeight
-                position = minYPosition
+                setupMinHeight(geom: geom)
             }
             .frame(maxHeight: geom.size.height - (position + self.dragTracker.height))
             .offset(y:  max(0, position + self.dragTracker.height))
+            .animation(.easeInOut(duration: 0.2), value: position)
             .animation(Animation.interpolatingSpring(stiffness: 250.0, damping: 40.0, initialVelocity: 5.0), value: dragging)
             .gesture(DragGesture()
                 .updating($dragTracker) { drag, state, transaction in state = drag.translation }
@@ -105,14 +113,13 @@ struct PullView: ViewModifier {
     private func onDragEnded(drag: DragGesture.Value) {
         dragging = false
 
-        let top: CGFloat = paddingTop
         let dragDirection = drag.predictedEndLocation.y - drag.location.y
         //can also calculate drag offset to make it more rigid to shrink and expand
         if dragDirection > 0 {
             position = minYPosition
             onCollapse()
         } else {
-            position = top
+            position = paddingTop
             onExpand()
         }
     }

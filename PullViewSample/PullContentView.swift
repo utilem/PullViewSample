@@ -44,19 +44,45 @@ struct CartView: View {
 }
 
 struct ScannerView : View {
+    @Binding var minHeight: CGFloat
+    
     var body: some View {
-        Rectangle()
-            .foregroundColor(.red)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.red)
+            HStack(spacing: 20) {
+                Button(action: {
+                        if minHeight > 100 {
+                            minHeight -= 32
+                        }
+                }) {
+                    Image(systemName: "minus")
+                        .font(.largeTitle)
+                        .foregroundColor(minHeight > 100 ? Color.accentColor : .gray)
+                }
+                Button(action: {
+                        if minHeight < 260 {
+                            minHeight += 32
+                        }
+                }) {
+                    Image(systemName: "plus")
+                        .font(.largeTitle)
+                        .foregroundColor(minHeight < 260 ? Color.accentColor : .gray)
+                }
+           }
+        }
     }
 }
 
 struct PullContentView: View {
+    @State private var minHeight: CGFloat = 100.0
+    
     var body: some View {
         ZStack(alignment: .top) {
-            ScannerView()
+            ScannerView(minHeight: $minHeight)
             
             PullOverView(
-                minHeight: 100,
+                minHeight: $minHeight,
                 paddingTop: 28,
                 onExpand: {
                     print("expaned")
